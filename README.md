@@ -8,7 +8,7 @@ Sentinel is a local, educational security-event review application inspired by s
 
 ## Dashboard Preview
 
-![Sentinel Dashboard](screenshots/dashboard.png)
+![Sentinel Dashboard](dashboard.png)
 
 ## Features
 
