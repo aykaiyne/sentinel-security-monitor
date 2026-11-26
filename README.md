@@ -6,6 +6,10 @@ Sentinel is a local, educational security-event review application inspired by s
 ![Flask](https://img.shields.io/badge/Flask-3.1-000000?logo=flask&logoColor=white)
 ![SQLite](https://img.shields.io/badge/SQLite-003B57?logo=sqlite&logoColor=white)
 
+## Dashboard Preview
+
+![Sentinel Dashboard](screenshots/dashboard.png)
+
 ## Features
 
 - Validated JSON Lines (JSONL) ingestion and normalized UTC timestamps.
