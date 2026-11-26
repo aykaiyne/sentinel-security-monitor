@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Sentinel | Security review</title><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></head>
+<body><main>
+<header><div><span class="eyebrow">SECURITY OPERATIONS / LOCAL LAB</span><h1>Sentinel<span>.</span></h1><p>Review security events and investigate signals.</p></div><a class="button" href="{{ url_for('report') }}">Export alerts CSV</a></header>
+<section class="notice">Educational dashboard · Batch analysis · Alerts require human review</section>
+<section class="metrics" aria-label="Overview">
+<div><span>Total events</span><strong>{{ data.total }}</strong></div><div><span>Authentication failures</span><strong>{{ data.failures }}</strong></div><div><span>Accounts observed</span><strong>{{ data.accounts }}</strong></div><div><span>Review signals</span><strong>{{ data.alerts|length }}</strong></div>
+</section>
+<section class="panel"><div class="section-head"><h2>Security alerts</h2><span>Entire dataset</span></div><div class="scroll"><table><thead><tr><th>Severity</th><th>Rule</th><th>Account</th><th>Evidence</th><th>Events</th></tr></thead><tbody>
+{% for a in data.alerts %}<tr><td><span class="severity {{ a.severity }}">{{ a.severity }}</span></td><td>{{ a.rule }}</td><td>{{ a.subject }}</td><td>{{ a.evidence }}</td><td>{{ a.count }}</td></tr>{% else %}<tr><td colspan="5">No review signals. Import the sample dataset to get started.</td></tr>{% endfor %}
+</tbody></table></div></section>
+<section class="panel"><div class="section-head"><h2>Event explorer</h2><span>{{ data.matched }} matches · up to 200 shown</span></div><form method="get"><label>Event type<select name="kind"><option value="">All event types</option>{% for k in kinds %}<option value="{{ k }}" {% if kind==k %}selected{% endif %}>{{ k|replace('_',' ') }}</option>{% endfor %}</select></label><label>Search<input name="q" value="{{ q }}" placeholder="Account, source, event ID" maxlength="100"></label><button>Apply filters</button><a href="{{ url_for('dashboard') }}">Clear</a></form><div class="scroll"><table><thead><tr><th>Timestamp (UTC)</th><th>Event ID</th><th>Type</th><th>Account</th><th>Source</th></tr></thead><tbody>
+{% for e in data.events %}<tr><td>{{ e.timestamp }}</td><td>{{ e.event_id }}</td><td>{{ e.kind|replace('_',' ') }}</td><td>{{ e.account }}</td><td class="mono">{{ e.source }}</td></tr>{% else %}<tr><td colspan="5">No matching records.</td></tr>{% endfor %}
+</tbody></table></div></section><footer>Sentinel / v1.0 · Python · SQLite · Flask · <a href="{{ url_for('summary') }}">JSON API</a></footer></main></body></html>
