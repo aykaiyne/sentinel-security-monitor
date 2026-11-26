@@ -1,4 +1,5 @@
 # Sentinel — Security Monitoring System
+[![Tests](https://github.com/aykaiyne/sentinel-security-monitor/actions/workflows/tests.yml/badge.svg)](https://github.com/aykaiyne/sentinel-security-monitor/actions/workflows/tests.yml)
 
 Sentinel is a local, educational security-event review application inspired by security information and event management (SIEM) systems. It imports structured event logs, stores them in SQLite, groups security-relevant records into explainable review signals, and presents them through a browser dashboard.
 
