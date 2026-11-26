@@ -108,7 +108,7 @@ Tests cover validation, UTC conversion, rule aggregation, persistence, duplicate
 
 ## Design limitations
 
-This is an educational, single-user batch analysis tool, not a production SIEM. It does not scan networks, connect to remote systems, collect live telemetry, authenticate dashboard users, or automatically block activity. Alerts are informational review signals, not proof of compromise. Rules aggregate the entire stored dataset, without time-window correlation. Storage and analysis are intended for small datasets and are not optimized for high-volume ingestion. The local Flask development server is not intended for public exposure. 
+This is an educational, single user batch analysis tool, not a production SIEM. It does not scan networks, connect to remote systems, collect live telemetry, authenticate dashboard users, or automatically block activity. Alerts are informational review signals, not proof of compromise. Rules aggregate the entire stored dataset, without time window correlation. Storage and analysis are intended for small datasets and are not optimized for high volume ingestion. The local Flask development server is not intended for public exposure. 
 
 ## Possible future improvements
 
@@ -125,4 +125,4 @@ This is an educational, single-user batch analysis tool, not a production SIEM. 
 
 ## License
 
-No open-source license has been selected for this starter project. Choose a license before publishing if you want to grant reuse permissions.
+No open source license has been selected for this starter project. Choose a license before publishing if you want to grant reuse permissions.
